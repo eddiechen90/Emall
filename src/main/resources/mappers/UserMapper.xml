@@ -151,4 +151,23 @@
       update_time = #{updateTime,jdbcType=TIMESTAMP}
     where id = now()
   </update>
+  
+  <select id="checkUsername" resultType="int" parameterType="String">
+    select count(1) from mmall_user
+    where user_name=#{username}
+  </select>
+  
+  <select id="selectLogin" resultMap="BaseResultMap" parameterType="map">
+    SELECT
+--     *？？？这样好吗，要什么查什么
+    <include refid="Base_Column_List"/>
+    from mmall_user
+    where username = #{username}
+    and password = #{password}
+  </select>
+
+  <select id="checkEmail" resultType="int" parameterType="String">
+    select count(1) from mmall_user
+    where email=#{email}
+  </select>
 </mapper>
