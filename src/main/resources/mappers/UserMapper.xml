@@ -154,12 +154,11 @@
   
   <select id="checkUsername" resultType="int" parameterType="String">
     select count(1) from mmall_user
-    where user_name=#{username}
+    where username=#{username}
   </select>
   
   <select id="selectLogin" resultMap="BaseResultMap" parameterType="map">
     SELECT
---     *？？？这样好吗，要什么查什么
     <include refid="Base_Column_List"/>
     from mmall_user
     where username = #{username}
@@ -199,5 +198,9 @@
     from mmall_user
     where password=#{password}
     and id=#{userId}
+  </select>
+
+  <select id="checkEmailByUserId" resultType="int" parameterType="map">
+    SELECT count(1) from mmall_user where email = #{email} and id!=#{userId}
   </select>
 </mapper>
