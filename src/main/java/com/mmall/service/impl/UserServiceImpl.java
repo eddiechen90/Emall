@@ -35,7 +35,9 @@ public class UserServiceImpl implements IUserService {
         if(user==null){
             return ServerResponse.createByErrorMessage("密码错误");
         }
+        //返回数据前清空密码和问题答案
         user.setPassword(StringUtils.EMPTY);
+        user.setAnswer(StringUtils.EMPTY);
         return ServerResponse.createBySuccess(user);
     }
 
@@ -171,7 +173,7 @@ public class UserServiceImpl implements IUserService {
     }
 
     public ServerResponse checkAdminRole(User user){
-        if(user!=null&&user.getRole().intValue()==Const.Role.ROLE_ADMIN){
+        if(user!=null && user.getRole()==Const.Role.ROLE_ADMIN){
             return ServerResponse.createBySuccess();
         }
         return ServerResponse.createByError();
