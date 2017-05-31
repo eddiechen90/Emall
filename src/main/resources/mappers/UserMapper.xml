@@ -129,9 +129,6 @@
       <if test="role != null" >
         role = #{role,jdbcType=INTEGER},
       </if>
-      <if test="createTime != null" >
-        create_time = now(),
-      </if>
       <if test="updateTime != null" >
         update_time = now(),
       </if>
@@ -147,9 +144,8 @@
       question = #{question,jdbcType=VARCHAR},
       answer = #{answer,jdbcType=VARCHAR},
       role = #{role,jdbcType=INTEGER},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_time = #{updateTime,jdbcType=TIMESTAMP}
-    where id = now()
+      update_time =now()
+    where id = #{id,jdbcType=INTEGER}
   </update>
   
   <select id="checkUsername" resultType="int" parameterType="String">

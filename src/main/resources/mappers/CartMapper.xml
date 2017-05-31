@@ -97,9 +97,6 @@
       <if test="checked != null" >
         checked = #{checked,jdbcType=INTEGER},
       </if>
-      <if test="createTime != null" >
-        create_time = #{createTime,jdbcType=TIMESTAMP},
-      </if>
       <if test="updateTime != null" >
         update_time =now(),
       </if>
@@ -112,7 +109,6 @@
       product_id = #{productId,jdbcType=INTEGER},
       quantity = #{quantity,jdbcType=INTEGER},
       checked = #{checked,jdbcType=INTEGER},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = now()
     where id = #{id,jdbcType=INTEGER}
   </update>
