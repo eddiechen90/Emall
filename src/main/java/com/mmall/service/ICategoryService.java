@@ -13,6 +13,6 @@ public interface ICategoryService {
     public ServerResponse addCategory(String categoryName, Integer parentId);
     public ServerResponse updateCategoryName(Integer categoryId,String categoryName);
     public ServerResponse<List<Category>> getChildrenParallel(Integer categoryId);
-    public ServerResponse selectCategoryAndChildrenId(Integer categoryId);
+    public ServerResponse<List<Integer>> selectCategoryAndChildrenId(Integer categoryId);
 
 }
